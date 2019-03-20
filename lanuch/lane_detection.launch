@@ -1,0 +1,8 @@
+<launch>
+  <node name="slope_calculator"  pkg="lane_detection"  type="lane_detection_ros.py" output="log" respawn="true">
+  </node>
+  <node name="img_line"  pkg="lane_detection"  type="img_line.py" output="log" respawn="true">
+  </node>
+  <node name="pid_control"  pkg="lane_detection"  type="PID.py" output="log" respawn="true">
+  </node>
+</launch>
