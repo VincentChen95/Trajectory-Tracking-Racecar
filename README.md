@@ -1,5 +1,6 @@
 # Trajectory-Tracking-Racecar
-## Introduction
+## Introduction  
+![pipeline](https://user-images.githubusercontent.com/36937088/54845125-d0e4bb80-4c95-11e9-8f07-fd297ad19702.jpeg)
 <br>We used ‘Color Selection’, ‘Gaussian Smoothing’, ‘Canny Edge Detection’, and ‘Hough Transform’ methods for lane detection task.
 Normally, the lane is yellow or white, therefore, we convert the RGB image into HSV color space which helps both the white and yellow lines to be clear and recognizable.
 Gaussian blur function helps to eliminate unnecessary line that is not for road line. This can modify a lot of rough line edges which causes many noisy line edges to be detected and make the line edges more smoother. The Canny edge detection can find the edge of the image based on where the brightness of the local area changes significantly.
