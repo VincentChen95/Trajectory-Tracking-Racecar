@@ -6,14 +6,16 @@ Normally, the lane is yellow or white, therefore, we convert the RGB image into 
 Gaussian blur function helps to eliminate unnecessary line that is not for road line. This can modify a lot of rough line edges which causes many noisy line edges to be detected and make the line edges more smoother. The Canny edge detection can find the edge of the image based on where the brightness of the local area changes significantly.
 Lastly, the Hough transform is a technique that is used in image analysis and computer vision and digital image processing. By return values from Hough transform, we can calculate slope from our camera vision to line edge. Therefore, our angle output is successfully calculated by the slope from our camera vision.
 ## Color Selection
-<br>Input: A* is a graph search algorithms, which take a “graph” as input. A graph is a set of locations (“nodes”) and the connections (“edges”) between them. A* selects the path that minimizes f(n)=g(n)+h(n) where n is the next node on the path, g(n) is the cost of the path from the start node to n, and h(n) is a heuristic function that estimates the cost of the cheapest path from n to the goal.
-<br> So if we change the weight of heuristic function, the result of A* will change.
-<br>The algorithm in pseudocode is as follows:
-![astar](https://user-images.githubusercontent.com/36937088/54732154-7a6d6500-4b4f-11e9-8f36-67a9ccfa64d0.jpeg)
+<br>The presence of shadows severely affected detection. We know that the color of the general lane line is yellow and white. If we extract the yellow and white of the picture, it will be much easier to detect the lane line later. So we transform the RGB color space into HSV color space.
 ## Canny Edge Detection
-<br> A major feature of the RRT algorithm is the random search of space. Such search brings great advantages especially to path planning in high-dimensional space, but such search leads to low computational efficiency of the algorithm. The random tree search generates random points throughout the metric space until the node just extends to the vicinity of the target to end the search and generate the final path.
-<br>The algorithm in pseudocode is as follows:  
-![rrt](https://user-images.githubusercontent.com/36937088/54732732-8eff2c80-4b52-11e9-87a2-7459d19c383e.jpeg)
+<br> Canny edge detection is a multi-step algorithm that can detect edges with noise supressed at the same time.  
+1. Smooth the image with a Gaussian filter to reduce noise and unwanted details and textures.  
+2. Compute gradient of $g(m,n)$ using any of the gradient operatiors (Roberts, Sobel, Prewitt, etc).  
+3. Suppress non-maxima pixels in the edges in threshold to thin the edge ridges (as the edges might have been broadened in step 1).   
+4. Threshold the previous result by two different thresholds to obtain two binary images.  
+5. Link edge segments to form continuous edges.
+<br>An Canny edge result is as follows:  
+![edge](https://user-images.githubusercontent.com/36937088/54845861-bc092780-4c97-11e9-8ee8-76599c1d5d40.png)
 ## Hough Tansformation
 <br>Although the RRT algorithm is a relatively efficient one, the RRT algorithm does not guarantee that the resulting planning path is relatively optimized. The main feature of the RRT* algorithm is that it can quickly find the initial path, and then continue to optimize as the sampling point increases until the target point is found or the set maximum number of cycles is reached. The difference between the RRT* algorithm and the RRT algorithm lies in the two recalculation processes for the new node x_new, which are:
 <br>1. The process of re-selecting the parent node for x_new
