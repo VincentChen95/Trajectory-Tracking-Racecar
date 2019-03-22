@@ -10,18 +10,12 @@ Lastly, the Hough transform is a technique that is used in image analysis and co
 ## Canny Edge Detection
 <br> Canny edge detection is a multi-step algorithm that can detect edges with noise supressed at the same time.  
 1. Smooth the image with a Gaussian filter to reduce noise and unwanted details and textures.  
-2. Compute gradient of $g(m,n)$ using any of the gradient operatiors (Roberts, Sobel, Prewitt, etc).  
+2. Compute gradient using any of the gradient operatiors (Roberts, Sobel, Prewitt, etc).  
 3. Suppress non-maxima pixels in the edges in threshold to thin the edge ridges (as the edges might have been broadened in step 1).   
 4. Threshold the previous result by two different thresholds to obtain two binary images.  
 5. Link edge segments to form continuous edges.
 <br>An Canny edge result is as follows:  
 ![edge](https://user-images.githubusercontent.com/36937088/54845861-bc092780-4c97-11e9-8ee8-76599c1d5d40.png)
-## Hough Tansformation
-<br>Although the RRT algorithm is a relatively efficient one, the RRT algorithm does not guarantee that the resulting planning path is relatively optimized. The main feature of the RRT* algorithm is that it can quickly find the initial path, and then continue to optimize as the sampling point increases until the target point is found or the set maximum number of cycles is reached. The difference between the RRT* algorithm and the RRT algorithm lies in the two recalculation processes for the new node x_new, which are:
-<br>1. The process of re-selecting the parent node for x_new
-<br>2. The process of rerouting a random tree
-<br>The algorithm in pseudocode is as follows:  
-![rrtstar](https://user-images.githubusercontent.com/36937088/54732460-21063580-4b51-11e9-8698-0dd5ce3d9d2e.jpeg)
 ## Result
 <br> I chose the same map and select the optimal parameter for each algorithm for comparasion.
 <br> The angle calculation results is as follows:    
