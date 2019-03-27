@@ -21,5 +21,4 @@ Lastly, the Hough transform is a technique that is used in image analysis and co
 <br> The angle calculation results is as follows:    
 ![angle](https://user-images.githubusercontent.com/36937088/54845334-54061180-4c96-11e9-8203-8c03842357f2.jpeg)
 <br> The car integrates the PID control and angle to follow the trajectory.   
- ![video12](https://user-images.githubusercontent.com/36937088/54845331-50728a80-4c96-11e9-82fd-d11d9e8df27a.png)  
 ![LineDetectionFinalVideo](https://user-images.githubusercontent.com/36937088/55095475-753f7700-5075-11e9-889c-30451bbd52d2.gif)
